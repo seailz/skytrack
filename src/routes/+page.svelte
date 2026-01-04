@@ -21,23 +21,6 @@
             alert("Geolocation is not supported by this browser.");
         }
 
-        setTimeout(() => {
-            fetch(`/aircraft?lat=${lat}&lon=${long}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-            })
-                .then(response => response.json())
-                .then(data => {
-                    aircraft = data.ac;
-                    console.log(aircraft);
-                })
-                .catch(error => {
-                    console.error("Error fetching aircraft data:", error);
-                });
-        }, 1000)
-
         setInterval(() => {
             while (!ready) {
                 console.log("not ready")
